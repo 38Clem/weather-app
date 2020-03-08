@@ -1,0 +1,32 @@
+<div *ngIf="this.myForecast[0].date">
+
+  <div>
+    <h1>{{this.myForecast[0].date*1000 | date:"dd/MM"}}</h1>
+    <ion-icon>{{this.myForecast[0].icon}}</ion-icon>
+    <p>{{this.myForecast[0].description}}</p>
+    <p>{{this.myForecast[0].temperature}}°c</p>
+  </div>
+  
+  <div>
+    <h1>{{this.myForecast[1].date*1000 | date:"dd/MM"}}</h1>
+    <ion-icon>{{this.myForecast[1].icon}}</ion-icon>
+    <p>{{this.myForecast[1].description}}</p>
+    <p>{{this.myForecast[1].temperature}}°c</p>
+  </div>
+  
+  <div>
+    <h1>{{this.myForecast[2].date*1000 | date:"dd/MM"}}</h1>
+    <ion-icon>{{this.myForecast[2].icon}}</ion-icon>
+    <p>{{this.myForecast[2].description}}</p>
+    <p>{{this.myForecast[2].temperature}}°c</p>
+  </div>
+  
+  <div>
+    <h1>{{this.myForecast[3].date*1000 | date:"dd/MM"}}</h1>
+    <ion-icon>{{this.myForecast[3].icon}}</ion-icon>
+    <p>{{this.myForecast[3].description}}</p>
+    <p>{{this.myForecast[3].temperature}}°c</p>
+  </div>
+
+
+</div>

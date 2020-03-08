@@ -1,0 +1,13 @@
+<app-city></app-city>
+<div *ngIf="this.myCity.name">
+    <div class="weather" style="background-color: cadetblue;">
+        <p>{{this.myCity.icon}}</p>
+        <p>{{this.myCity.weatherDescription}}</p>
+        <p>{{this.myCity.temperature}}°c</p>
+            <div><p>Humidity :</p> <p>{{this.myCity.humidity}}%</p></div>
+            <div><p>Wind</p> <p>{{this.myCity.wind}}km/h</p></div>
+    </div>
+    
+</div>
+
+<app-forecast></app-forecast>
