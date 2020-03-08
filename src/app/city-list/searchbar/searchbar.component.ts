@@ -20,6 +20,7 @@ export class SearchbarComponent implements OnInit {
     private router: Router
   ) { }
 
+
     public getInputEnter(event){
       const input = event.originalTarget.value;
       console.log(input);
