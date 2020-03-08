@@ -95,8 +95,10 @@ export class SetValueService {
     const maxLength = 5;
     return new Promise ((resolve, reject)=>{
 
-      if (this.cityList.length < maxLength) {
-        this.cityList.push(city);
+      if (this.cityList.length < maxLength ) {
+        if(-1 === this.cityList.indexOf(city)){
+          this.cityList.push(city);
+        }
         let list = JSON.stringify(this.cityList)
         localStorage.setItem('cities',list);
         resolve(list)
