@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { City } from '../model/city';
 import { Forecast } from '../model/forecast';
-import { JsonBin } from 'src/environments/jsonbin';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
