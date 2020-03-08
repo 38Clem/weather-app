@@ -2,7 +2,7 @@ import { Forecast } from './forecast'
 
 export class City {
     public name:string;
-    public icon:any;
+    public icon:string;
     public weatherDescription:string;
     public temperature:number;
     public wind:number;
