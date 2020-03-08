@@ -8,21 +8,23 @@ import { Api } from 'src/environments/api'
   providedIn: 'root'
 })
 export class SearchByNameService {
-  
+  private url = Api.path
+  private key = Api.key
+  private units = Api.units
 
   constructor(
     private http: HttpClient,
   ) { }
 
   public getCurrentWeather(name){
-    const key = Api.key
 
-    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q='+name+key+'&units=metric').toPromise()
+    return this.http.get(this.url+'weather?q='+name+this.key+this.units).toPromise()
+
+
   }
 
   public getForecast(name){
-    const key = Api.key
-    return this.http.get('https://api.openweathermap.org/data/2.5/forecast?q='+name+key+'&units=metric').toPromise()
+    return this.http.get(this.url+'forecast?q='+name+this.key+this.units).toPromise()
   }
 
 }
