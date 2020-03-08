@@ -11,11 +11,26 @@ import { SearchByGeolocService } from '../shared/service/search-by-geoloc.servic
 export class WeatherComponent implements OnInit {
 
   private myCity: City;
+  
+  private slideOpts = {
+    initialSlide: 0,
+    speed: 800,
+    autoplay:true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+  };
 
   constructor(
     private setValue: SetValueService,
     private geolocService: SearchByGeolocService
   ) {
+
+    
     
     this.geolocService.autorisationGeoloc()
  
