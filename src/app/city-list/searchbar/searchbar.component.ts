@@ -20,7 +20,7 @@ export class SearchbarComponent implements OnInit {
     private router: Router
   ) { }
 
-
+    
     public getInputEnter(event){
       const input = event.originalTarget.value;
       console.log(input);
@@ -35,6 +35,7 @@ export class SearchbarComponent implements OnInit {
   public search(cityName) {
     this.request.getCurrentWeather(cityName)
       .then((result) => {
+        console.log(cityName);
         this.setValue.setCityList(cityName)
           .then(() => {
             this.setValue.setCityValue(result)
@@ -49,7 +50,8 @@ export class SearchbarComponent implements OnInit {
               })
               .catch()
           })
-          .catch(() => {
+          .catch(() => {console.log('CATCH SET CITY LIST');
+          
           })
       })
       .catch((result) => { console.log(result) })

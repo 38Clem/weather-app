@@ -23,6 +23,9 @@ export class CityListComponent implements OnInit {
     setValue.displayCityList()
       .then((newList: []) => {
         this.cityList = newList
+        console.log('this.cityList');
+        console.log(this.cityList);
+        
       })
   }
 

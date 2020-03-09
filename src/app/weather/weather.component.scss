@@ -1,3 +1,17 @@
 :host {
     text-align: center;
 }
+
+ion-slides{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100vh;
+    width: 100vw;
+
+    img {
+        -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+        box-shadow: 5px 5px 15px 5px #000000;
+        height: auto;
+        width: auto;
+    }
+}

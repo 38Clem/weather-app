@@ -16,33 +16,19 @@ export class WeatherComponent implements OnInit {
     initialSlide: 0,
     speed: 800,
     autoplay:true,
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
   };
 
   constructor(
     private setValue: SetValueService,
     private geolocService: SearchByGeolocService
   ) {
-
-    
-    
     this.geolocService.autorisationGeoloc()
  
     this.setValue.dislayWeather()
       .then((city: City) => {
         this.myCity = city;
-
-        console.log(("WEATHER COMPONENT"));
-        console.log(city)
       })
   }
-
 
   ngOnInit() {}
 

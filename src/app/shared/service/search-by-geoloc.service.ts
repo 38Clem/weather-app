@@ -54,11 +54,9 @@ export class SearchByGeolocService {
 
           })
           .catch(() => {
-            console.log("C'est vraiment dommage .....");
           })
       })
       .catch(() => {
-        console.log("C'est dommage");
       })
     }
 

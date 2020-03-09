@@ -13,7 +13,7 @@ export class SetValueService {
   private forecastDay2: Forecast = new Forecast;
   private forecastDay3: Forecast = new Forecast;
   private forecastDay4: Forecast = new Forecast;
-  private cityList = [];
+  private cityList:string [] = [];
 
 
   constructor(
@@ -27,14 +27,12 @@ export class SetValueService {
     return new Promise((resolve, reject) => {
       console.log('SET CITY VALUE');
       console.log(city);
-      
+
       this.newCity.name = city.name
-      this.newCity.temperature = city.main.temp;
+      this.newCity.temperature = Math.round(city.main.temp);
       this.newCity.weatherDescription = city.weather[0].description;
       console.log(city.weather[0].icon);
-      this.newCity.icon = 'https://openweathermap.org/img/wn/'+city.weather[0].icon+'.png';
-      console.log(this.newCity.icon);
-      
+      this.newCity.icon = 'https://openweathermap.org/img/wn/' + city.weather[0].icon + '.png';
       this.newCity.humidity = city.main.humidity;
       this.newCity.wind = city.wind.speed;
 
@@ -57,24 +55,24 @@ export class SetValueService {
       console.log(forecastResult)
 
       this.forecastDay1.date = forecastResult.list[8].dt;
-      this.forecastDay1.icon = 'https://openweathermap.org/img/wn/'+forecastResult.list[8].weather[0].icon+'.png';
+      this.forecastDay1.icon = 'https://openweathermap.org/img/wn/' + forecastResult.list[8].weather[0].icon + '.png';
       this.forecastDay1.description = forecastResult.list[8].weather[0].description;
-      this.forecastDay1.temperature = forecastResult.list[8].main.temp;
+      this.forecastDay1.temperature = Math.round(forecastResult.list[8].main.temp);
 
       this.forecastDay2.date = forecastResult.list[16].dt;
-      this.forecastDay2.icon = 'https://openweathermap.org/img/wn/'+forecastResult.list[16].weather[0].icon+'.png';
+      this.forecastDay2.icon = 'https://openweathermap.org/img/wn/' + forecastResult.list[16].weather[0].icon + '.png';
       this.forecastDay2.description = forecastResult.list[16].weather[0].description;
-      this.forecastDay2.temperature = forecastResult.list[16].main.temp;
+      this.forecastDay2.temperature = Math.round(forecastResult.list[16].main.temp);
 
       this.forecastDay3.date = forecastResult.list[24].dt;
-      this.forecastDay3.icon = 'https://openweathermap.org/img/wn/'+forecastResult.list[24].weather[0].icon+'.png';
+      this.forecastDay3.icon = 'https://openweathermap.org/img/wn/' + forecastResult.list[24].weather[0].icon + '.png';
       this.forecastDay3.description = forecastResult.list[24].weather[0].description;
-      this.forecastDay3.temperature = forecastResult.list[24].main.temp;
+      this.forecastDay3.temperature = Math.round(forecastResult.list[24].main.temp);
 
       this.forecastDay4.date = forecastResult.list[32].dt;
-      this.forecastDay4.icon = 'https://openweathermap.org/img/wn/'+forecastResult.list[32].weather[0].icon+'.png';
+      this.forecastDay4.icon = 'https://openweathermap.org/img/wn/' + forecastResult.list[32].weather[0].icon + '.png';
       this.forecastDay4.description = forecastResult.list[32].weather[0].description;
-      this.forecastDay4.temperature = forecastResult.list[32].main.temp;
+      this.forecastDay4.temperature = Math.round(forecastResult.list[32].main.temp);
 
       resolve()
     })
@@ -90,41 +88,35 @@ export class SetValueService {
 
   // City List
 
-  public setCityList(city) {
 
-    const maxLength = 5;
-    return new Promise ((resolve, reject)=>{
-
-      if (this.cityList.length < maxLength ) {
-        if(-1 === this.cityList.indexOf(city)){
+  public setCityList(city:string) {
+    return new Promise((resolve, reject) => {
+      const maxLength = 5;
+      if (this.cityList.length < maxLength) {
+        if (this.cityList.indexOf(city) === -1) {
           this.cityList.push(city);
         }
         let list = JSON.stringify(this.cityList)
-        localStorage.setItem('cities',list);
+        localStorage.setItem('cities', list);
         resolve(list)
       }
-      else {
-        
+      else{
         reject(alert("Max City Reached"))
       }
-
-
     })
-
   }
 
-  public deleteCity(index){
-    this.cityList.splice(index,1);
+  public deleteCity(index) {
+    this.cityList.splice(index, 1);
     const newList = JSON.stringify(this.cityList);
     localStorage.removeItem('cities');
-    localStorage.setItem('cities',newList);
+    localStorage.setItem('cities', newList);
   }
 
   public displayCityList() {
     return new Promise((resolve, reject) => {
-      this.cityList = JSON.parse(localStorage.getItem('cities'))
+      this.cityList = JSON.parse(localStorage.getItem('cities')) || []
       resolve(this.cityList)
-
     })
   }
 }
