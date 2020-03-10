@@ -12,15 +12,12 @@ export class ForecastComponent implements OnInit {
   private myForecast: Forecast[]
 
   constructor(
-    private setValue:SetValueService
+    private setValue: SetValueService
   ) {
-  this.setValue.displayForecast()
-  .then((result:Forecast[])=>{
-    console.log("IN FORECAST COMPONENT");
-    this.myForecast = result
-  })
-   }
 
-  ngOnInit() {}
+    this.myForecast = this.setValue.displayForecast()
+  }
+
+  ngOnInit() { }
 
 }

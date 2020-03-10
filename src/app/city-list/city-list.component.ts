@@ -18,23 +18,13 @@ export class CityListComponent implements OnInit {
     private setValue: SetValueService
   ) {
 
-
-
-    setValue.displayCityList()
-      .then((newList: []) => {
-        this.cityList = newList
-        console.log('this.cityList');
-        console.log(this.cityList);
-        
-      })
+    this.cityList =setValue.getCityList()
+ 
   }
 
   public getWeather(city) {
     if (this.child) {
       this.child.search(city);
-    }
-    else {
-      console.log('PAS DE CHILD');
     }
   }
 

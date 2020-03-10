@@ -1,4 +1,13 @@
-<ion-header>
-        <ion-button [routerLink]="['/city-list']"><ion-icon name="business"></ion-icon></ion-button>
-        <ion-title>{{this.myCity.name}}</ion-title>
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-button color="light" [routerLink]="['/city-list']" slot="start">
+      <ion-icon name="business"></ion-icon>
+    </ion-button>
+    <ion-title *ngIf="this.myCity.name">
+      {{ this.myCity.name }}
+    </ion-title>
+    <ion-title *ngIf="!this.myCity.name">
+      Click on the button to start a new search
+    </ion-title>
+  </ion-toolbar>
 </ion-header>

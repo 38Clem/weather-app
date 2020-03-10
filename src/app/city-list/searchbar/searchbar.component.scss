@@ -1,4 +1,6 @@
-ion-searchbar {
+ion-header {
     display: flex;
-    flex-direction: row-reverse;
+    ion-button{
+       margin-top: 1%;
+    }
 }

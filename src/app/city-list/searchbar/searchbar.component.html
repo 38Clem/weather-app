@@ -1,8 +1,15 @@
-    <ion-searchbar showCancelButton="focus" placeholder="Search New City" (keyup.enter)="getInputEnter($event)" showSearchButton="focus">
-        <ion-button [routerLink]="['/weather']">
-            <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-        <ion-button (click)="getInputClick($event)">
-            <ion-icon name="search"></ion-icon>
-        </ion-button>
+  <ion-header>
+    <ion-button color="warning" [routerLink]="['/weather']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-searchbar
+      showCancelButton="focus"
+      placeholder="Search New City"
+      (keyup.enter)="getInputEnter($event)"
+      showSearchButton="focus"
+    >
     </ion-searchbar>
+    <ion-button color="warning" (click)="getInputClick($event)">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-header>

@@ -14,6 +14,8 @@ export class SetValueService {
   private forecastDay3: Forecast = new Forecast;
   private forecastDay4: Forecast = new Forecast;
   private cityList:string [] = [];
+  private forecast:Forecast [] = [];
+
 
 
   constructor(
@@ -80,10 +82,7 @@ export class SetValueService {
 
 
   public displayForecast() {
-    return new Promise((resolve, reject) => {
-      const forecast: Forecast[] = [this.forecastDay1, this.forecastDay2, this.forecastDay3, this.forecastDay4]
-      resolve(forecast)
-    })
+    return this.forecast = [this.forecastDay1, this.forecastDay2, this.forecastDay3, this.forecastDay4]
   }
 
   // City List
@@ -113,10 +112,7 @@ export class SetValueService {
     localStorage.setItem('cities', newList);
   }
 
-  public displayCityList() {
-    return new Promise((resolve, reject) => {
-      this.cityList = JSON.parse(localStorage.getItem('cities')) || []
-      resolve(this.cityList)
-    })
+  public getCityList() {
+    return this.cityList = JSON.parse(localStorage.getItem('cities')) || []
   }
 }

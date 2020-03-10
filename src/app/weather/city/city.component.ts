@@ -16,9 +16,6 @@ export class CityComponent implements OnInit {
 
     this.setValue.dislayWeather()
     .then((city:City)=> {
-
-      console.log('JE SUIS DANS CITY COMPONENT')
-      console.log(city)
       this.myCity = city
     })
   }

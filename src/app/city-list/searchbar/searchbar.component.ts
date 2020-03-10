@@ -20,13 +20,11 @@ export class SearchbarComponent implements OnInit {
     private router: Router
   ) { }
 
-    
-    public getInputEnter(event){
+  public getInputEnter(event){
       const input = event.originalTarget.value;
-      console.log(input);
-      
       this.search(input)
     }
+    
     getInputClick(event){
       const input = event.originalTarget.parentElement.offsetParent.lastChild.childNodes[0].value;
       this.search(input)
@@ -35,7 +33,6 @@ export class SearchbarComponent implements OnInit {
   public search(cityName) {
     this.request.getCurrentWeather(cityName)
       .then((result) => {
-        console.log(cityName);
         this.setValue.setCityList(cityName)
           .then(() => {
             this.setValue.setCityValue(result)

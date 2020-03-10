@@ -11,11 +11,11 @@ import { SearchByGeolocService } from '../shared/service/search-by-geoloc.servic
 export class WeatherComponent implements OnInit {
 
   private myCity: City;
-  
+
   private slideOpts = {
     initialSlide: 0,
     speed: 800,
-    autoplay:true,
+    autoplay: true,
   };
 
   constructor(
@@ -23,13 +23,13 @@ export class WeatherComponent implements OnInit {
     private geolocService: SearchByGeolocService
   ) {
     this.geolocService.autorisationGeoloc()
- 
+
     this.setValue.dislayWeather()
       .then((city: City) => {
         this.myCity = city;
       })
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

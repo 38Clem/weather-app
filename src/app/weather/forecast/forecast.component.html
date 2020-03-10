@@ -1,32 +1,12 @@
-<div *ngIf="this.myForecast[0].date">
-
-  <div>
-    <h1>{{this.myForecast[0].date*1000 | date:"dd/MM"}}</h1>
-    <img [src]="this.myForecast[0].icon" />
-    <p>{{this.myForecast[0].description}}</p>
-    <p>{{this.myForecast[0].temperature}}°c</p>
-  </div>
-  
-  <div>
-    <h1>{{this.myForecast[1].date*1000 | date:"dd/MM"}}</h1>
-    <img [src]="this.myForecast[1].icon" />
-        <p>{{this.myForecast[1].description}}</p>
-    <p>{{this.myForecast[1].temperature}}°c</p>
-  </div>
-  
-  <div>
-    <h1>{{this.myForecast[2].date*1000 | date:"dd/MM"}}</h1>
-    <img [src]="this.myForecast[2].icon" />
-    <p>{{this.myForecast[2].description}}</p>
-    <p>{{this.myForecast[2].temperature}}°c</p>
-  </div>
-  
-  <div>
-    <h1>{{this.myForecast[3].date*1000 | date:"dd/MM"}}</h1>
-    <img [src]="this.myForecast[3].icon" />
-    <p>{{this.myForecast[3].description}}</p>
-    <p>{{this.myForecast[3].temperature}}°c</p>
-  </div>
-
-
-</div>
+<ion-content *ngIf="this.myForecast[0].date">
+  <ion-row>
+    <ion-card *ngFor="let forecast of myForecast">
+      <ion-item>{{
+        forecast.date * 1000 | date: "dd/MM"
+      }}</ion-item>
+      <img [src]="forecast.icon" />
+      <ion-item>{{ forecast.description }}</ion-item>
+      <ion-item> <ion-icon name="thermometer"></ion-icon> {{ forecast.temperature }}°c</ion-item>
+    </ion-card>
+  </ion-row>
+</ion-content>

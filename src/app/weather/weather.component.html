@@ -1,34 +1,41 @@
-<app-city></app-city>
+<ion-content>
+  <app-city></app-city>
 
-<div *ngIf="!this.myCity.name">
+  <div *ngIf="!this.myCity.name">
     <ion-slides [scrollbar]="true" [options]="slideOpts">
-        <ion-slide>
-            <img src="https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg" />
-        </ion-slide>
-        <ion-slide>
-            <img src="https://cdn.pixabay.com/photo/2019/03/11/00/15/rainbow-4047523_960_720.jpg" />
-        </ion-slide>
-        <ion-slide>
-            <img src="https://cdn.pixabay.com/photo/2016/06/13/22/12/flash-1455285_960_720.jpg" />
-        </ion-slide>
+      <ion-slide>
+        <img
+          src="https://images.all-free-download.com/images/graphiclarge/sunshine_landscape_drawing_colorful_cartoon_style_6828640.jpg"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          src="https://images.all-free-download.com/images/graphiclarge/summer_vacation_drawing_beach_scenery_high_view_6829106.jpg"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          src="https://images.all-free-download.com/images/graphiclarge/autumn_drawing_design_with_falling_leaves_on_hill_6824260.jpg"
+        />
+      </ion-slide>
+
+      <ion-slide>
+        <img
+          src="https://images.all-free-download.com/images/graphiclarge/winter_drawing_tree_snow_fox_icons_colored_cartoon_6834998.jpg"
+        />
+      </ion-slide>
     </ion-slides>
-</div>
+  </div>
 
-<div *ngIf="this.myCity.name">
+  <ion-card *ngIf="this.myCity.name">
+    <img [src]="this.myCity.icon" />
+    <ion-item>{{ this.myCity.weatherDescription }}</ion-item>
+    <ion-item
+      ><ion-icon name="thermometer"></ion-icon>
+      {{ this.myCity.temperature }}°C</ion-item>
+    <ion-item><ion-icon name="water"></ion-icon> Humidity : {{ this.myCity.humidity }}%</ion-item>
+    <ion-item><ion-icon name="speedometer"></ion-icon> Wind : {{ this.myCity.wind }} km/h</ion-item>
+  </ion-card>
 
-    <div class="weather" style="background-color: cadetblue;">
-        <img [src]="this.myCity.icon" />
-        <p>{{this.myCity.weatherDescription}}</p>
-        <p>{{this.myCity.temperature}}°c</p>
-        <div>
-            <p>Humidity :</p>
-            <p>{{this.myCity.humidity}}%</p>
-        </div>
-        <div>
-            <p>Wind</p>
-            <p>{{this.myCity.wind}}km/h</p>
-        </div>
-    </div>
-
-    <app-forecast></app-forecast>
-</div>
+  <app-forecast></app-forecast>
+</ion-content>
