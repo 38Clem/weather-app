@@ -3,6 +3,7 @@ import { SearchByNameService } from 'src/app/shared/service/search-by-name.servi
 import { SetValueService } from 'src/app/shared/service/set-value.service';
 import { City } from 'src/app/shared/model/city';
 import { Router } from '@angular/router';
+import { log } from 'util';
 
 @Component({
   selector: 'app-searchbar',
@@ -25,10 +26,11 @@ export class SearchbarComponent implements OnInit {
       this.search(input)
     }
     
-    getInputClick(event){
-      const input = event.originalTarget.parentElement.offsetParent.lastChild.childNodes[0].value;
-      this.search(input)
-    }
+  // public getInputClick(event){
+  //     console.log(event);
+  //     const input = event.explicitOriginalTarget.attributes.childNodes.ownerDocument.activeElement.value;
+  //     this.search(input)
+  //   }
 
   public search(cityName) {
     this.request.getCurrentWeather(cityName)
@@ -48,7 +50,6 @@ export class SearchbarComponent implements OnInit {
               .catch()
           })
           .catch(() => {console.log('CATCH SET CITY LIST');
-          
           })
       })
       .catch((result) => { console.log(result) })

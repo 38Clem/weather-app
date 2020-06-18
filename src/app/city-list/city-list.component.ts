@@ -28,8 +28,8 @@ export class CityListComponent implements OnInit {
     }
   }
 
-  public delete(index) {
-    this.setValue.deleteCity(index)
+  public delete(city) {
+    this.setValue.deleteCity(city)
   }
 
   ngOnInit() { }

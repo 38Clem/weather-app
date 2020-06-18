@@ -105,7 +105,8 @@ export class SetValueService {
     })
   }
 
-  public deleteCity(index) {
+  public deleteCity(city) {
+    const index = this.cityList.indexOf(city);
     this.cityList.splice(index, 1);
     const newList = JSON.stringify(this.cityList);
     localStorage.removeItem('cities');

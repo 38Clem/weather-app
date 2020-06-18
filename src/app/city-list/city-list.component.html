@@ -5,8 +5,8 @@
       <ion-card-content>
         <ion-item *ngFor="let city of cityList">
           {{city}}
-          <ion-button (click) = getWeather(this.cityList[0]) slot="end"><ion-icon name="search"></ion-icon></ion-button>
-          <ion-button (click) = delete(0) slot="end"><ion-icon name="trash"></ion-icon></ion-button>
+          <ion-button (click) = getWeather(city) slot="end"><ion-icon name="search"></ion-icon></ion-button>
+          <ion-button (click) = delete(city) slot="end"><ion-icon name="trash"></ion-icon></ion-button>
         </ion-item>
       </ion-card-content>
   </ion-card>
